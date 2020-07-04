@@ -27,18 +27,18 @@ public class SignIn {
                     System.out.println(memberID+" " +LastName);
                     textField1.setText("");
                     textField2.setText("");
-                    boolean verfiyCred = false;
-                    int Iteration = 0;
-                    while (Iteration < UsableMemberList.size() && !verfiyCred) {
-                        System.out.println( UsableMemberList.get(Iteration).getBarcode());
-                        if (( UsableMemberList.get(Iteration).getBarcode() == memberID ) && UsableMemberList.get(Iteration).getLastName().equalsIgnoreCase(LastName)) {
-                            verfiyCred = true;
+                    boolean verifyCred = false;
+                    Member signedIn= null;
+                    for(int i = 0; i< UsableMemberList.size();i++){
+                        System.out.println( UsableMemberList.get(i).getBarcode());
+                        if (( UsableMemberList.get(i).getBarcode() == memberID ) && UsableMemberList.get(i).getLastName().equalsIgnoreCase(LastName)) {
+                            verifyCred = true;
+                            signedIn= UsableMemberList.get(i);
                             break;
                         }
-                        Iteration++;
                     }
-                    if (verfiyCred) {
-                        JOptionPane.showMessageDialog(null, "Welcome to Bellevue Badminton Club" + UsableMemberList.get(Iteration).getFirstName());
+                    if (verifyCred) {
+                        JOptionPane.showMessageDialog(null, "Welcome to Bellevue Badminton Club " + signedIn.getFirstName());
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR! There seems to be a problem. Try again or please contact the front desk.");
                     }

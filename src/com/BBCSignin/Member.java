@@ -10,9 +10,10 @@ public class Member {
     public Member(String[] details) {
         FirstName = details[0];
         LastName = details[1];
+        System.out.println(LastName);
         FamilyName = details[2];
         //System.out.println(Integer.parseInt(details[5]));
-        int Barcode = Integer.parseInt(details[5]);
+        Barcode = Integer.parseInt(details[5]);
         //System.out.println(Barcode);
     }
 
