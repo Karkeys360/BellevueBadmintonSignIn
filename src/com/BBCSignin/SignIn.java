@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SignIn {
-    private JButton SignIn;
-    private JPanel BasePanel;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JPanel signInBox;
+    public JButton SignIn;
+    public JPanel BasePanel;
+    public JTextField textField1;
+    public JTextField textField2;
+    public JPanel signInBox;
 
     public SignIn( ) {
         SignIn.addActionListener(new ActionListener() {
@@ -51,23 +51,6 @@ public class SignIn {
         });
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-
-        JFrame frame = new JFrame("Bellevue Badminton Sign-in");
-        SignIn signIn = new SignIn();
-        JPanel basePanel = signIn.BasePanel;
-        setTransparent(basePanel);
-        signIn.signInBox.setOpaque(true);
-        signIn.signInBox.setBackground(Color.white);
-        BackgroundPanel p = new BackgroundPanel();
-        p.add(basePanel);
-        frame.setContentPane(p);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-        initializeMembers();
-    }
-
     public static ArrayList<Member> initializeMembers( ) throws FileNotFoundException {
         ArrayList<Member> Members = new ArrayList<Member>();
         File MemberList = new File("BBCMemberList.txt");
@@ -91,7 +74,7 @@ public class SignIn {
         }
     }
 
-    private static class BackgroundPanel extends JLabel {
+    public static class BackgroundPanel extends JLabel {
         Image image;
         private final String pic = "NewLogo.png";
 
